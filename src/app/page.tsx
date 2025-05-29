@@ -1,65 +1,70 @@
 'use client';
 
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Calendar, MessageSquare } from "lucide-react";
+import { EnvelopeClosedIcon, ChatBubbleIcon, CalendarIcon } from "@radix-ui/react-icons";
 
-export default function ApixaloLandingPage() {
+export default function Home() {
   return (
-    <div className="min-h-screen bg-black flex flex-col items-center justify-center p-8 text-white">
-      <div className="max-w-2xl w-full text-center space-y-6">
-        <h1 className="text-4xl font-bold tracking-tight text-[#1a9ff0]">Apixalo</h1>
-        <p className="text-lg text-gray-400">
-          AI Agents for Modern Operations. Automate insurance verification, client intake,
-          and compliance tracking — without adding headcount.
-        </p>
+    <main className="min-h-screen bg-black text-white">
+      <div className="container mx-auto px-4 py-16 space-y-16">
+        {/* Logo and Tagline */}
+        <div className="text-center space-y-6">
+          <h1 className="text-6xl md:text-7xl font-bold tracking-tighter">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#2196F3] to-[#1976D2]">
+              Apixalo
+            </span>
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            AI Agents for Modern Operations. Automate insurance verification, client intake, and compliance tracking — without adding headcount.
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
-          <Card className="bg-[#121212] text-white">
-            <CardContent className="p-6">
-              <Mail className="mx-auto mb-4 text-[#1a9ff0]" />
-              <h3 className="text-xl font-semibold">Insurance Automation</h3>
-              <p className="text-sm text-gray-400">
-                Real-time eligibility checks and verification for clinics.
-              </p>
-            </CardContent>
+        {/* Feature Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <Card className="bg-[#111] border-[#222] p-8 flex flex-col items-center text-center space-y-4 hover:border-[#2196F3]/50 transition-colors">
+            <div className="p-3 bg-[#2196F3]/10 rounded-xl">
+              <EnvelopeClosedIcon className="w-8 h-8 text-[#2196F3]" />
+            </div>
+            <h3 className="text-xl font-semibold">Insurance Automation</h3>
+            <p className="text-gray-400">Real-time eligibility checks and verification for clinics.</p>
           </Card>
 
-          <Card className="bg-[#121212] text-white">
-            <CardContent className="p-6">
-              <MessageSquare className="mx-auto mb-4 text-[#1a9ff0]" />
-              <h3 className="text-xl font-semibold">Client Intake</h3>
-              <p className="text-sm text-gray-400">
-                Branded portals for collecting documents and onboarding clients.
-              </p>
-            </CardContent>
+          <Card className="bg-[#111] border-[#222] p-8 flex flex-col items-center text-center space-y-4 hover:border-[#2196F3]/50 transition-colors">
+            <div className="p-3 bg-[#2196F3]/10 rounded-xl">
+              <ChatBubbleIcon className="w-8 h-8 text-[#2196F3]" />
+            </div>
+            <h3 className="text-xl font-semibold">Client Intake</h3>
+            <p className="text-gray-400">Branded portals for collecting documents and onboarding clients.</p>
           </Card>
 
-          <Card className="bg-[#121212] text-white">
-            <CardContent className="p-6">
-              <Calendar className="mx-auto mb-4 text-[#1a9ff0]" />
-              <h3 className="text-xl font-semibold">Compliance Tracking</h3>
-              <p className="text-sm text-gray-400">
-                Auto-reminders for certifications, OSHA deadlines, and training.
-              </p>
-            </CardContent>
+          <Card className="bg-[#111] border-[#222] p-8 flex flex-col items-center text-center space-y-4 hover:border-[#2196F3]/50 transition-colors">
+            <div className="p-3 bg-[#2196F3]/10 rounded-xl">
+              <CalendarIcon className="w-8 h-8 text-[#2196F3]" />
+            </div>
+            <h3 className="text-xl font-semibold">Compliance Tracking</h3>
+            <p className="text-gray-400">Auto-reminders for certifications, OSHA deadlines, and training.</p>
           </Card>
         </div>
 
-        <form className="mt-10 space-y-4">
-          <Input className="bg-[#1c1c1e] text-white" placeholder="Your email address" type="email" required />
-          <Textarea className="bg-[#1c1c1e] text-white" placeholder="Tell us your biggest workflow headache…" rows={4} />
-          <Button type="submit" className="w-full bg-[#1a9ff0] hover:bg-[#007acc] text-white">
+        {/* Contact Form */}
+        <div className="max-w-xl mx-auto w-full space-y-4">
+          <Input
+            type="email"
+            placeholder="Your email address"
+            className="bg-[#111] border-[#222] text-white placeholder:text-gray-500 h-12"
+          />
+          <Textarea
+            placeholder="Tell us your biggest workflow headache..."
+            className="bg-[#111] border-[#222] text-white placeholder:text-gray-500 min-h-[120px] resize-none"
+          />
+          <Button className="w-full bg-[#2196F3] hover:bg-[#1976D2] text-white h-12 text-lg font-medium transition-colors">
             Request Early Access
           </Button>
-        </form>
-
-        <p className="text-xs text-gray-500 mt-4">
-          No spam. Just one invite when we're live.
-        </p>
+        </div>
       </div>
-    </div>
+    </main>
   );
 } 
